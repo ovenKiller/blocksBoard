@@ -1,2 +1,0 @@
-# blocksBoard
-a mini game.
