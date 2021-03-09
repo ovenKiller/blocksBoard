@@ -201,7 +201,7 @@
       "array": [
         0,
         0,
-        220.23149344640714,
+        428.68257487329714,
         0,
         0,
         0,
@@ -356,7 +356,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "back",
+    "_name": "backButton",
     "_objFlags": 0,
     "_parent": {
       "__id__": 2
@@ -3757,10 +3757,7 @@
     "label": null,
     "text": "hello",
     "back": null,
-    "rawBarrierData": {
-      "__uuid__": "959fbfe7-f8de-43e7-854e-54c3f78781bf"
-    },
-    "barrierData": [],
+    "dataScript": null,
     "_id": "54jQreGW1Eh5SzZ2eHiveT"
   }
 ]

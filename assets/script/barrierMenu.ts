@@ -17,6 +17,8 @@ export default class NewClass extends cc.Component {
     text: string = 'hello';
     @property(cc.Button)
     back:cc.Button = null;
+    @property(cc.Component)
+    dataScript: cc.Component = null;
     // LIFE-CYCLE CALLBACKS:
     // @property(cc.TextAsset)
     // rawBarrierData:cc.TextAsset = null;
@@ -36,13 +38,21 @@ export default class NewClass extends cc.Component {
         // }
     }
     onLoad () {
-        let bar1:cc.Node = this.node.getChildByName("barr1");
-        bar1.on('mousedown',this.gotoGame,this);
+        let dataScript:cc.Component = cc.find("gameData").getComponent("gameData");
+        for(let i = 1; i <= 8; ++i){
+            this.node.getChildByName("barr"+i).on("mousedown",function(){
+                dataScript.data = dataScript.barrierData[i-1];
+                cc.director.loadScene("barrierGame");
+            });
+        }
+        
+        this.node.getChildByName("backButton").on("mousedown",function(){
+            cc.director.loadScene("mainMenu");
+        })
+        // let bar1:cc.Node = this.node.getChildByName("barr1");
+        // bar1.on('mousedown',this.gotoGame,this);
         //cc.log(cc.find("gameData").getComponent("gameData").data);
         this.loadData();
-    }
-    gotoGame(){
-        cc.director.loadScene("barrierGame");
     }
 
     start () {
