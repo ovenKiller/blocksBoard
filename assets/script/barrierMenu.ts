@@ -39,7 +39,7 @@ export default class NewClass extends cc.Component {
     }
     onLoad () {
         let dataScript:cc.Component = cc.find("gameData").getComponent("gameData");
-        for(let i = 1; i <= 8; ++i){
+        for(let i = 1; i <= 20; ++i){
             this.node.getChildByName("barr"+i).on("mousedown",function(){
                 dataScript.data = dataScript.barrierData[i-1];
                 cc.director.loadScene("barrierGame");

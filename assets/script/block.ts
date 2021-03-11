@@ -26,6 +26,9 @@ export default class NewClass extends cc.Component {
     @property(cc.Node)
     board: cc.Node = null;
     onLoad () {
+            let dataScript: cc.Component = cc.find("gameData").getComponent("gameData");
+            let pic:cc.Component = this.node.getChildByName("catPic").getComponent(cc.Sprite);
+            this.node.getChildByName("catPic").getComponent(cc.Sprite).spriteFrame = cc.find("gameData").getComponent("gameData").catPics[Math.floor(Math.random()*100)%17];
             this.node.on('mousedown',this.changeStatus,this);
     }
     changeStatus(){
@@ -36,13 +39,13 @@ export default class NewClass extends cc.Component {
         this.board.colScoreList[this.col].getComponent("scoreBoard").dropScore();
         this.board.rowScoreList[this.row].getComponent("scoreBoard").dropScore();
         this.exist = false;
-        cc.tween(this.node).to(0.3,{opacity: 50}).start();
+        cc.tween(this.node.getChildByName("catPic")).to(0.3,{opacity: 0}).start();
     }
     appear(){
         this.board.colScoreList[this.col].getComponent("scoreBoard").gainScore();
         this.board.rowScoreList[this.row].getComponent("scoreBoard").gainScore();
         this.exist = true;
-        cc.tween(this.node).to(0.3,{opacity: 255}).start();
+        cc.tween(this.node.getChildByName("catPic")).to(0.3,{opacity: 255}).start();
     }
     start () {
 
